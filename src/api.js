@@ -13,7 +13,11 @@ export function getArticles() {
 export function getArticlePage(article_id) {
   return api.get("/articles/" + (article_id)).then(({ data }) => {
     return data.article;
-  }).catch((err) => {
-    console.log(err)
   })
 }
+
+export function getComments(article_id) {
+    return api.get("/articles/" + (article_id) + "/comments").then(({ data }) => {
+      return data.comments
+    })
+  }

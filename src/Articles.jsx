@@ -12,13 +12,17 @@ import { Link } from "react-router-dom";
 export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [selectedCard, setSelectedCard] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const styles = useStyles();
 
   useEffect(() => {
     getArticles().then((response) => {
       setArticles(response.articles);
+      setIsLoading(false);
     });
   }, [articles]);
+
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <>
@@ -28,19 +32,20 @@ export default function Articles() {
           {articles.map((article) => {
             return (
               <li key={article.article_id}>
-                
-                <Card id="item-card" className={styles.card} >
+                <Card id="item-card" className={styles.card}>
                   <CardPreview>
                     <img
                       src={article.article_img_url}
                       alt={"image preview for " + article.title}
                     />
                   </CardPreview>
-                  <Link to={"/articles/"+article.article_id} className={styles.text}>
-                  <CardHeader header={<h3>{article.title} </h3>}></CardHeader>
+                  <Link
+                    to={"/articles/" + article.article_id}
+                    className={styles.text}>
+                    <CardHeader header={<h3>{article.title} </h3>}></CardHeader>
                   </Link>
                   <CardFooter className={styles.footer}>
-                  <Link to={"/articles/"+article.article_id}></Link>
+                    <Link to={"/articles/" + article.article_id}></Link>
                     <p>{"#" + article.topic}</p>
                   </CardFooter>
                 </Card>
