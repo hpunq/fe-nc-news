@@ -1,4 +1,4 @@
-import { makeStyles } from "@fluentui/react-components";
+import { ColorSwatch, makeStyles } from "@fluentui/react-components";
 
 export const useStyles = makeStyles({
   card: {
@@ -11,12 +11,17 @@ export const useStyles = makeStyles({
     height: "64px",
   },
 
-  text: { margin: "0" },
+  text: {
+    color: "black",
+    textDecoration: "none",
+    margin: "none",
+  },
 
   flex: {
     gap: "20px",
     display: "flex",
     flexWrap: "wrap",
+    alignItems: "flex-start",
     maxWidth: "90%",
     margin: "auto",
     justifyContent: "left",
@@ -25,6 +30,6 @@ export const useStyles = makeStyles({
   footer: {
     position: "absolute",
     bottom: "4px",
-    left: "16px",
+    left: "5px",
   },
 });
