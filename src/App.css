@@ -111,3 +111,8 @@
 #left-adjust{
   padding-right: 45px;
 }
+
+#username{
+  display: inline;
+  margin-bottom: 0px;
+}

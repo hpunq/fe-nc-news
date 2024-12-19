@@ -31,13 +31,22 @@ export function updateCommentVote(voteValue, comment_id){
 export function updateArticleVote(voteValue, article_id){
   return api.patch("/articles/" + (article_id), {inc_votes: voteValue}).then(({data})=> {
     return data.updatedArticle
-  }).catch((err) => {
-    console.log(err)
   })
 }
 
 export function postComment(user, body, article_id){
-  return api.post("/articles/" + (article_id) + "/comments", {author: user, body: body, article_id: article_id}).then(({body: {newComment}}) => {
-    return newComment
+  const comment = {username: user, body: body}
+
+  return api.post("/articles/" + (article_id) + "/comments", comment).then(({data}) => {
+    return data.newComment
+  })
+}
+
+export function deleteComment(comment_id){
+  return api.delete("/comments/" + (comment_id)).then(({data}) => {
+    console.log(data)
+    return data
+  }).catch((err) => {
+    console.log(err)
   })
 }

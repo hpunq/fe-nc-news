@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
-  const [selectedCard, setSelectedCard] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const styles = useStyles();
 
