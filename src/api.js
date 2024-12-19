@@ -21,3 +21,23 @@ export function getComments(article_id) {
       return data.comments
     })
   }
+
+export function updateCommentVote(voteValue, comment_id){
+  return api.patch("/comments/" + (comment_id), {inc_votes: voteValue}).then(({data})=> {
+    return data.updatedComment
+  })
+}
+
+export function updateArticleVote(voteValue, article_id){
+  return api.patch("/articles/" + (article_id), {inc_votes: voteValue}).then(({data})=> {
+    return data.updatedArticle
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function postComment(user, body, article_id){
+  return api.post("/articles/" + (article_id) + "/comments", {author: user, body: body, article_id: article_id}).then(({body: {newComment}}) => {
+    return newComment
+  })
+}

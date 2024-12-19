@@ -5,6 +5,8 @@ import {
   CardHeader,
   CardFooter,
   CardPreview,
+  Button,
+  Spinner,
 } from "@fluentui/react-components";
 import { useStyles } from "./App-css";
 import { Link } from "react-router-dom";
@@ -22,11 +24,21 @@ export default function Articles() {
     });
   }, [articles]);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <Spinner/>
 
   return (
     <>
-      <h2 className="sub-header">All articles</h2>
+      <h2 className="sub-header">
+        
+          fetch(<div className="dropdown"><span>allArticles</span>
+          <div className="dropdown-content">
+            <a>#coding</a>
+            <a>#cooking</a>
+            <a>#football</a>
+          </div>
+        </div>
+          )
+      </h2>
       <div className={styles.center}>
         <ul className={styles.flex}>
           {articles.map((article) => {
@@ -45,8 +57,9 @@ export default function Articles() {
                     <CardHeader header={<h3>{article.title} </h3>}></CardHeader>
                   </Link>
                   <CardFooter className={styles.footer}>
-                    <Link to={"/articles/" + article.article_id}></Link>
-                    <p>{"#" + article.topic}</p>
+                    <Button size="small" appearance="subtle">
+                      <p>{"#" + article.topic}</p>
+                    </Button>
                   </CardFooter>
                 </Card>
               </li>
