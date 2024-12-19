@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { getComments } from "./api";
+import { Button } from "@fluentui/react-components";
+import PostComment from "./PostComment";
+import CommentCard from "./CommentCard";
 
 export default function Comments(props) {
   const [comments, setComments] = useState([]);
@@ -13,15 +16,11 @@ export default function Comments(props) {
   return (
     <>
       <h2 className="sub-header-left">Comments</h2>
+      <PostComment></PostComment>
       <ul className="comments">
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id}>
-              <header>
-                <h3>{comment.author}:</h3>
-                <p>{comment.body}</p>
-              </header>
-            </li>
+            <CommentCard comment={comment} key={comment.comment_id}/>
           );
         })}
       </ul>

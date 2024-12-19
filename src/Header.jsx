@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <h1 className="header">
-        <Link to="/">NC NEWS</Link>
+        <Link className="header" to="/">NC NEWS</Link>
       </h1>
     </>
   );
