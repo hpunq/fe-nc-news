@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, ScrollRestoration } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticlePage, updateArticleVote } from "./api";
 import Comments from "./Comments";
@@ -11,6 +11,8 @@ export default function ArticlePage() {
   const [concurState, setConcurState] = useState("unadded");
   const [disconcurState, setDisconcurState] = useState("unadded");
   const [votes, setVotes] = useState("");
+
+  
 
   useEffect(() => {
     getArticlePage(article_id).then((articleData) => {

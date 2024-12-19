@@ -9,7 +9,7 @@ export const useStyles = makeStyles({
     ":hover": {
       transform: "scale(1.02)",
       boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-    }
+    },
   },
 
   text: {
@@ -17,8 +17,8 @@ export const useStyles = makeStyles({
     textDecoration: "none",
     margin: "none",
     ":hover": {
-      color: "#90296A"
-    }
+      color: "#90296A",
+    },
   },
 
   flex: {
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
   },
 
   goTopHidden: {
-    display: "none"
+    display: "none",
   },
 
   goTop: {
@@ -59,7 +59,28 @@ export const useStyles = makeStyles({
     lineHeight: "30px",
     ":hover": {
       transform: "scale(1.12)",
-      background: "#D72483"
+      background: "#D72483",
     },
   },
+
+  button: {
+    ":enabled": {
+      color: "#90296A",
+      ":hover": {
+        background: "#90296A",
+        color: "white",
+      },
+    },
+  },
+
+  deleteButton: {
+    ":enabled": {
+      color: "#90296A",
+      ":hover": {
+        background: "#90296A",
+        color: "white",
+      },
+    },
+  },
+
 });
