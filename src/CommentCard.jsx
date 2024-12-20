@@ -2,6 +2,7 @@ import { Button, Divider } from "@fluentui/react-components";
 import { useState, useEffect } from "react";
 import { updateCommentVote } from "./api";
 import DeleteComment from "./DeleteComment";
+import DeletePopup from "./DeletePopup";
 
 export default function CommentCard({ comment }) {
   const [concurState, setConcurState] = useState("unadded");
@@ -60,7 +61,8 @@ export default function CommentCard({ comment }) {
           <p>on {comment.created_at.slice(0, -14)}</p>
           <p>{comment.body}</p>
         </header>
-        <DeleteComment comment={comment} />
+        <DeletePopup comment={comment}/>
+        {/* <DeleteComment comment={comment} /> */}
         <p id="vote-count">{votes} concurs</p>
         <Button
           disabledFocusable={concurState !== "unadded"}

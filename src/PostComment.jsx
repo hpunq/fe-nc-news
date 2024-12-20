@@ -34,7 +34,7 @@ export default function PostComment() {
         />
         <CardFooter>
           <Button className={styles.button} onClick={handleSubmit} disabled={formInput === ""}>
-            Post
+            post!
           </Button>
         </CardFooter>
       </Card>
