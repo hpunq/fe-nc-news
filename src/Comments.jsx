@@ -15,8 +15,7 @@ export default function Comments(props) {
   return (
     <>
       <h2 className="sub-header-left">Comments</h2>
-      
-        <PostComment></PostComment>
+      <PostComment />
       <ul className="comments">
         {comments.map((comment) => {
           return <CommentCard comment={comment} key={comment.comment_id} />;

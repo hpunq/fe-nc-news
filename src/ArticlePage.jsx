@@ -1,4 +1,4 @@
-import { useParams, ScrollRestoration } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticlePage, updateArticleVote } from "./api";
 import Comments from "./Comments";
@@ -11,8 +11,6 @@ export default function ArticlePage() {
   const [concurState, setConcurState] = useState("unadded");
   const [disconcurState, setDisconcurState] = useState("unadded");
   const [votes, setVotes] = useState("");
-
-  
 
   useEffect(() => {
     getArticlePage(article_id).then((articleData) => {
@@ -73,7 +71,7 @@ export default function ArticlePage() {
         <p>{newArticle.body}</p>
         <div id="right-align">
           <div id="left-adjust">
-          <p id="vote-count">{votes} concurs</p>
+            <p id="vote-count">{votes} concurs</p>
           </div>
           <Button
             disabledFocusable={concurState !== "unadded"}

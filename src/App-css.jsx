@@ -21,6 +21,23 @@ export const useStyles = makeStyles({
     },
   },
 
+  hashtagText: {
+    color: "black",
+    textDecoration: "none",
+    margin: "none",
+    ":disabled": {
+      color: "white",
+      cursor: "default",
+    },
+  },
+
+  hashButton: {
+    ":hover": {
+      cursor: "default",
+      background: "white",
+    },
+  },
+
   flex: {
     gap: "20px",
     display: "flex",
@@ -28,6 +45,7 @@ export const useStyles = makeStyles({
     alignItems: "flex-start",
     maxWidth: "90%",
     margin: "auto",
+    marginTop: "35px",
     justifyContent: "left",
     listStyleType: "none",
   },
@@ -74,6 +92,8 @@ export const useStyles = makeStyles({
   },
 
   deleteButton: {
+    padding: "5px",
+    borderRadius: "4px",
     ":enabled": {
       color: "#90296A",
       ":hover": {
@@ -82,5 +102,4 @@ export const useStyles = makeStyles({
       },
     },
   },
-
 });
